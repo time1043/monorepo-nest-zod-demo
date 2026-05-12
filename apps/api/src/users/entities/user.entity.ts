@@ -1,4 +1,4 @@
-import { UserRole } from '../enums/user-role.enum';
+import { UserRole } from '@repo/schemas';
 
 export class User {
   id: string;

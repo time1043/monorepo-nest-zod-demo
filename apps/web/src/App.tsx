@@ -1,7 +1,7 @@
-import { useEffect, useState, type SubmitEvent } from 'react';
+import { UserRoleSchema, type CreateUser, type UserResponse } from '@repo/schemas';
 
 import './App.css';
-import { UserRoleSchema, type CreateUser, type UserResponse } from './types/User';
+import { useEffect, useState, type SubmitEvent } from 'react';
 
 const API_URL = 'http://localhost:3000';
 

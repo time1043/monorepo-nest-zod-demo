@@ -19,6 +19,15 @@ nest new . -s
 mkdir -p packages/schemas
 ```
 
+- [package.json](/packages/schemas/package.json)
+
+```shell
+cd apps/api
+pnpm add nestjs-zod "@repo/schemas@workspace:*"
+cd apps/web
+pnpm add "@repo/schemas@workspace:*"
+```
+
 ## Oxfmt
 
 - https://oxc.rs/docs/guide/usage/formatter/quickstart.html

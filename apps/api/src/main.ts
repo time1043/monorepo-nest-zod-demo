@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
+import { cleanupOpenApiDoc } from 'nestjs-zod';
 
 import { AppModule } from './app.module';
 
@@ -19,7 +20,8 @@ async function bootstrap() {
     .addBearerAuth()
     .addTag('todos')
     .build();
-  const documentFactory = () => SwaggerModule.createDocument(app, config);
+  const openApiDoc = SwaggerModule.createDocument(app, config);
+  const documentFactory = () => cleanupOpenApiDoc(openApiDoc) as OpenAPIObject;
   // http://localhost:3000/swagger
   // http://localhost:3000/swagger/json
   SwaggerModule.setup('swagger', app, documentFactory, {
